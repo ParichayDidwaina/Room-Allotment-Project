@@ -1,0 +1,46 @@
+create table room(
+roomid INT(4) PRIMARY KEY,
+Type char(1),
+beds int(1),
+block char(1),
+rno int(3),
+taken int(1)
+);
+
+create table student(
+studentID varchar(9) PRIMARY KEY,
+password varchar(15),
+roomID int(4)
+FOREIGN KEY (roomID) references room(roomid)
+);
+
+create table ainfo(
+studentID varchar(9),
+year int(1),
+cgpa float(4,2),
+credits int(11),
+FOREIGN KEY (studentID) references student(studentID)
+);
+
+create table pinfo(
+studentID varchar(9),
+name varchar(20),
+phNo BIGINT(20),
+address varchar(40),
+dob date,
+stay char(1),
+FOREIGN KEY (studentID) references student(studentID)
+);
+
+
+INSERT INTO `room` VALUES (1001,'A',6,'K',1,0),(1002,'A',4,'K',2,0),(1004,'N',1,'K',4,0),(1003,'N',6,'K',3,0),(2001,'A',2,'L',1,0),(2002,'A',4,'L',2,0),(2003,'N',2,'L',3,0),(2004,'A',1,'L',4,0),(3001,'N',6,'M',1,0),(3002,'A',4,'M',2,0),(3003,'A',1,'M',3,0),(4001,'N',2,'N',1,0),(4002,'A',4,'N',2,0),(1005,'A',6,'K',5,0),(1006,'A',4,'K',6,0),(1007,'N',6,'K',7,0),(1008,'N',4,'K',8,0),(1009,'A',2,'K',9,0),(1010,'N',2,'K',10,0),(1011,'A',2,'K',11,0),(2005,'A',6,'L',5,0),(2006,'A',6,'L',6,0),(2007,'N',6,'L',7,0),(2008,'N',4,'L',8,0),(2009,'A',4,'L',9,0),(2010,'A',4,'L',10,0),(2011,'A',2,'L',11,0),(2012,'N',2,'L',12,0);
+
+INSERT INTO `ainfo` VALUES ('17BCE0001',2,8.40,47),('17BCE0002',2,7.60,45),('17BCE0003',2,9.20,44),('17BCE0004',2,7.60,42),('17BCE0005',2,8.80,45),('17BCE0006',2,8.00,47),('16BME0001',3,7.60,93),('16BME0002',3,8.80,95),('16BME0003',3,9.40,90),('16BME0004',3,7.40,96),('15BME0004',4,7.20,140),('15BME0003',4,7.00,144),('15BME0002',4,8.40,140),('15BME0001',4,7.40,136);
+
+INSERT INTO `student` VALUES ('17BCE0001','QWERTY',NULL),('17BCE0002','ASDFG',NULL),('17BCE0003','ZXCVB',NULL),('17BCE0004','WERTYU',NULL),('17BCE0005','SDFGHJ',NULL),('17BCE0006','XCVBN',NULL),('16BME0001','QWASZX',NULL),('16BME0002','WESDXC',NULL),('16BME0003','ERDFCV',NULL),('16BME0004','RTFGVB',NULL),('15BME0001','TREWQ',NULL),('15BME0002','ERTYU',NULL),('15BME0003','SDFGH',NULL),( '15BME0004','ABCDE',NULL);
+
+INSERT INTO `pinfo` VALUES ('17BCE0001','Shashank',9985294894,'Mumbai','1999-09-21','Y');
+INSERT INTO `pinfo` VALUES ('17BCE0002','Saksham',9349872384,'Punjab','1999-05-11','Y'),('17BCE0003','Parichay',9958794835,'Delhi','1999-05-26','Y'),('17BCE0004','Kisley',9059654906,'Patna','1999-06-29','Y'),('17BCE0005','Shubham',9987989887,'Delhi','1999-07-21','Y'),('17BCE0006','Aryan',9989556565,'Delhi','2000-08-9','Y');
+INSERT INTO `pinfo` VALUES ('16BME0001','Mayank',9951656462,'Rachi','1998-09-11','Y'),('16BME0002','Saurabh',9956564546,'Lucknow','1998-09-26','Y'),('16BME0003','Debnath',9499994945,'Bengal','1998-02-12','Y'),('16BME0004','Rohan',9459465456,'Delhi','1998-01-2','Y');
+INSERT INTO `pinfo` VALUES ('15BME0001','Rahul',9546546462,'Delhi','1997-04-6','Y'),('15BME0002','Arastoo',9566516562,'Delhi','1997-08-24','Y'),('15BME0003','Naman',9554565462,'Delhi','1997-08-5','Y'),('15BME0004','Siddhant',9564656462,'Mumbai','1997-06-14','Y');
+
